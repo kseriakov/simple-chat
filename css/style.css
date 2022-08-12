@@ -539,11 +539,21 @@ footer {
 }
 
 .search__burger {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  font-size: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   flex: 0 0 auto;
   width: 40px;
   height: 40px;
-  flex: 0 0 auto;
-  background: url("/img/burger.png") center no-repeat;
+  position: relative;
+  margin-left: 5px;
+  cursor: pointer;
 }
 .search__field {
   flex: 1 1 280px;
@@ -960,6 +970,24 @@ footer {
   width: auto;
   object-fit: cover;
   object-position: center;
+}
+
+.burger__line {
+  width: 30px;
+  min-height: 2px;
+  background-color: black;
+  margin: 4px 0;
+}
+
+.burger__close {
+  position: absolute;
+  top: 40%;
+  right: 5px;
+}
+
+.burger__curtain {
+  background-color: #8babd8;
+  opacity: 0.5;
 }
 
 .form-row {

@@ -136,11 +136,16 @@ $md4: 479.98;
 
 .search {
 	&__burger {
+		@include flexbox();
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		flex: 0 0 auto;
 		width: 40px;
 		height: 40px;
-		flex: 0 0 auto;
-		background: url("/img/burger.png") center no-repeat;
+		position: relative;
+		margin-left: 5px;
+		cursor: pointer;
 	}
 	&__field {
 		flex: 1 1 280px;
@@ -231,7 +236,6 @@ $md4: 479.98;
 		flex: 1 1 230px;
 		@include flexbox();
 		align-items: center;
-
 
 		p {
 			height: 24px;
@@ -540,6 +544,26 @@ $md4: 479.98;
 	}
 }
 
+//====================================================================================================
+
+// Burger menu
+
+.burger__line {
+	width: 30px;
+	min-height: 2px;
+	background-color: black;
+	margin: 4px 0;
+}
+.burger__close {
+	position: absolute;
+	top: 40%;
+	right: 5px;
+}
+
+.burger__curtain {
+	background-color: #8babd8;
+	opacity: 0.5;
+}
 //====================================================================================================
 
 //</ОСНОВНОЙ БЛОК>====================================================================================================
