@@ -1,0 +1,62 @@
+      подкл библ
+//@prepros-append ../../js/fancybox/jquery.fancybox.pack.js
+    свой код
+//@prepros-append jquery.form.min.js
+    всплывающие подсказки
+//@prepros-append jquery.popover.min.js
+    задание маски(шаблона) поля input(тел.,)
+//@prepros-append jquery.inputmask.bundle.min.js
+    кастомный скрол (для селекта)
+//@prepros-append jquery.nicescroll.min.js
+    для работы(визуал эфек) на тач-скринах(скрол)
+//@prepros-append jquery.ui.touch-punch.min.js
+    для отсеживания колесика мыши с подключением функций
+//@prepros-append jquery.mousewheel.min.js
+    увелич input в размере в завис от задан текста
+//@prepros-append jquery.autosize.input.min.js
+    увелич text-area в размере в завис от задан текста
+//@prepros-append jquery.ns-autogrow.min.js
+    паралакс эф. тяжелая. лучше писать самому или выбирать
+//@prepros-append jquery.parallax.js
+    галлерея
+//@prepros-append baguetteBox.js
+//@prepros-append livesearch.js
+//@prepros-append slick.min.js
+//@prepros-append typed.min.js
+
+//@prepros-append map.js
+//@prepros-append sliders.js
+//@prepros-append scroll.js
+//@prepros-append fullscroll.js
+//@prepros-append responsive.js
+
+
+      подкл scriptы в js.html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/jquery.gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/TextPlugin.min.js"></script>
+
+
+<script src="https://maps.google.com/maps/api/js?sensor=false&amp;key=AIzaSyAe2qamce_RVw-APqN7EqsaGZ2Cm5Zciss"></script>
+<script src="https://api-maps.yandex.ru/2.1/?apikey=88450800-c3cf-4124-9321-04e971d0c3d8&lang=ru_RU" type="text/javascript"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+<!-- async --> 
+
+      др библ -> копир назв файла -> гугл -> см. руководство
+    редко использ
+circle-progress.min.js
+    устарела
+cloud-zoom.js
+    переписать, устарел, счас проще
+fullscroll.js
+    плитки на grid -> https://isotope.metafizzy.co/
+isotope.pkgd.min.js
+    два вспомогательных файла
+jq-end.js
+jq-start.js
+    анимиование цифр
+jquery.animateNumber.min.js
+    увелич input в размере в завис от задан текста
+jquery.autosize.input.min.js

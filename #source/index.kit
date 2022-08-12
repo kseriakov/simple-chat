@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Главная</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- <meta name="format-detection" content="telephone=no" /> -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- для раб прогеров отдельно от нас. редко нужен. устаревший  -->
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- <meta name="robots" content="noindex, nofollow" /> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+    <!-- для адапт вёрстки -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- подкл доп файлов - шапка -->
+      <!-- @import "header.html" -->
+      <div class="block sector">
+        <div class="container">
+          <!-- popap - всплывающие окна, уже сделаны, настроены, нужны доп. визуал стили и вызвать  -->
+          <!-- вызов - добавить класс pl(popap link) + в href="" написать #(диес) и имя popap(callback).-->
+          <!-- продолжение >> в popup.html и script.js(~84-174) -->
+          <a href="#callback" class="block__link pl">Попап</a>
+          <!-- попап с видео -->
+          <!-- data-vid - ссылка на видео(или код) -->
+          <!-- в верхнем правом углу, не свёрстаный крестик -->
+          <a href="#video" data-vid="OsF9H7yRnvU" class="block__link pl"
+            >Попап с видео</a
+          >
+          <br />
+          <br />
+          <!-- tabуляция - вкладки, при нажатии на которые попеременно появляется контент -->
+          <div class="block__tabs tabs">
+            <!-- добавить .tabs родителем всего блока(подвязан на js) -->
+            <!-- иерархия - навигация>вкладки№^элементы>контент№ -->
+            <!-- добавить ко вкладкам tab__navitem, к контенту tab__item.  -->
+            <!-- active - выбор по умолчанию -->
+            <!-- продолжение ui.scss (~220-268)- и script.js(~160-173)-> -->
+            <!-- навигационая часть -->
+            <nav class="nav__block">
+              <!-- две вкладки -->
+              <div class="nav__block-item tab__navitem active">Первая</div>
+              <div class="nav__block-item tab__navitem">Вторая</div>
+            </nav>
+            <!-- блок с элементами -->
+            <div class="cont__block">
+              <!-- два контента -->
+              <div class="cont__block-item tab__item active">
+                TEXT 1: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Ut, veritatis. Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Aliquid, quo provident tempore accusamus
+                possimus ratione illo modi iusto rerum similique.
+              </div>
+              <div class="cont__block-item tab__item">
+                TEXT 2: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Ut, veritatis. Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Aliquid, quo provident tempore accusamus
+                possimus ratione illo modi iusto rerum similique. Lorem ipsum
+                dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor
+                sit amet consectetur adipisicing elit
+              </div>
+            </div>
+          </div>
+          <br />
+          <br />
+          <!-- сполер - при нажатии появляется контент(js добавл .active) -->
+          <div class="block__spollers spollers">
+            <!-- структура - блок>подблок>title+text -->
+            <!-- добавить к title .spoller -->
+            <!-- аккордеон - закрытие сполера при отрытие другого. добавить в titlЫ .closeall -->
+            <!-- продолжение ui.scss (~269-292)- и script.js(~174-192)-> -->
+            <!-- сам сполер. один -->
+            <div class="spollers__item">
+              <div class="spollers__title spoller closeall">Открой меня</div>
+              <div class="spollers__text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Facilis inventore optio, eveniet culpa nesciunt odio eum
+                necessitatibus debitis natus fugiat molestias doloremque
+                molestiae nulla atque minima veniam enim quidem. Ut.
+              </div>
+            </div>
+            <br />
+            <!-- второй сполер -->
+            <div class="spollers__item">
+              <div class="spollers__title spoller closeall">Открой меня</div>
+              <div class="spollers__text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Facilis inventore optio, eveniet culpa nesciunt odio eum
+                necessitatibus debitis natus fugiat molestias doloremque
+                molestiae nulla atque minima veniam enim quidem. Ut.
+              </div>
+            </div>
+          </div>
+          <br />
+          <br />
+          <!-- формы -->
+          <form class="block__form form-block" data-ms="ms_1" action="#">
+            <!-- для вывода нового popup - data-ms="ms_1" -->
+            <!-- input -->
+            <div class="form-block__item">
+              <!-- .input прописан в forms.scss.(inp+tab ~141-168)  -->
+              <!-- атрибут data-value - различные js действия, в том числе placeholder -->
+              <!-- для не возможности отправки формы без данных, через кнопку, в input, вводим доп класc - req(в scss .err) и forms.js(~773-875)(VALIDATE FORMS)  -->
+              <!-- для выведения текста ошибки, добав в input атрибут - data-error="Текст ошибки"(в scss .form__error) и forms.js((901)930-959) -->
+              <!-- доп .l выносит data-value в отдельный лейбл(в scss .form__label) и forms.js(~443-472)(FIELDS) -->
+              <!-- Имя -->
+              <input
+                autocomplete="off"
+                type="text"
+                name="form[]"
+                data-value="Введи имя"
+                data-error="Текст ошибки: имя"
+                class="input l req"
+              />
+              <!-- ??? не раб такая вложеность inputов на .form__label и .form__error ??? -->
+              <!-- Емаил(валидация) -->
+              <!-- .email прописан в forms.scss.(inp+tab ~65) и forms.js()-->
+              <!-- <input
+                autocomplete="off"
+                type="text"
+                name="form[]"
+                data-value="Введи email"
+                data-error="Текст ошибки: email"
+                class="input l email req"
+              /> -->
+            </div>
+            <!-- Емаил(валидация) -->
+            <div class="form-block__item">
+              <!-- .email прописан в forms.scss.(inp+tab ~65) и forms.js(~554)-->
+              <!-- ??? не раб маска на email -->
+              <input
+                autocomplete="off"
+                type="email"
+                name="form[]"
+                data-value="Введи email"
+                data-error="Текст ошибки: email"
+                class="input l email req"
+              />
+            </div>
+            <!-- телефон -->
+            <div class="form-block__item">
+              <!-- для работы маски(шаблона), подкл библ inputmask.bundle, добав .phone, меняем в forms.js шаблон на нужный ($(this).inputmask("+7(999) 999 9999",)  -->
+              <!-- .phone прописан в forms.scss(inp+tab ~56) и forms.js(inp+tab ~509-552+) -->
+              <input
+                autocomplete="off"
+                type="tel"
+                name="form[]"
+                data-value="Введи телефон"
+                data-error="Текст ошибки: телефон"
+                class="input l phone req"
+              />
+            </div>
+            <!-- checkbox -->
+            <div class="form-block__item">
+              <!-- checkbox -->
+              <div class="check">
+                Text
+                <!-- checkbox прописан в forms.scss.(chk+tab ~157-183) и forms.js(363-382) -->
+                <input type="checkbox" value="1" name="form[]" />
+              </div>
+              <div class="check">
+                Text
+                <input type="checkbox" value="1" name="form[]" />
+              </div>
+              <div class="check">
+                Text
+                <input type="checkbox" value="1" name="form[]" />
+              </div>
+            </div>
+            <!-- радио кнопки -->
+            <div class="form-block__item">
+              <!-- радио кнопки. отделн блок рад.кноп. с индив именем -->
+              <!-- .options прописан в forms.scss.(opt+tab ~185-217) и forms.js(384-400) -->
+              <div class="options">
+                <!-- первая рад.кн -->
+                <div class="option active">
+                  Новинки!
+                  <input type="radio" value="1" name="form[type]" />
+                </div>
+                <!-- вторая рад.кн. уже не active  -->
+                <div class="option">
+                  Новинки 2!
+                  <input type="radio" value="2" name="form[type]" />
+                </div>
+              </div>
+            </div>
+            <!-- select -->
+            <div class="form-block__item">
+              <!-- .select прописан в forms.scss.(sel+tab ~44-143) и forms.js(4-221) -->
+              <!-- для scrolla(бегунка перемотки), подкл в vendors.js(из JS.txt) доп файл jquery.nicescroll.min.js (описание https://github.com/inuyaksa/jquery.nicescroll). Настройки forms.js(~12-23) -->
+              <!-- в <selest>, в class пишем название блока(form-block). class __select допишет js -->
+              <select name="form[]" class="form-block">
+                <option value="1" selected="selected">Пункт №1</option>
+                <option value="2">Пункт №2</option>
+                <option value="3">Пункт №3</option>
+                <option value="4">Пункт №4</option>
+                <option value="5">Пункт №5</option>
+                <option value="6">Пункт №6</option>
+                <option value="7">Пункт №7</option>
+              </select>
+            </div>
+            <!-- ползунки выбора  -->
+            <div class="form-block__item">
+              <!-- подкл с помощью JS.txt в js.html - библ. ui -->
+              <!-- готовый код с проекта фриПоЖизн, работает с подвязкой на forms.js(~680-742) и forms.scss(~372-494) -->
+              <div class="category-params-item-price">
+                <div class="category-params-item-price-table table">
+                  <div class="cell">
+                    <input type="text" name="form[]" id="rangefrom" />
+                  </div>
+                  <div class="cell">
+                    <input type="text" name="form[]" id="rangeto" />
+                  </div>
+                </div>
+                <div id="range" class="category-params-item-price-range"></div>
+              </div>
+            </div>
+            <!-- рейтинг -->
+            <div class="form-block__item">
+              <!-- подвязка forms.js(~634-665) и forms.scss(~284-331) -->
+              <div class="rating-block">
+                <!-- доп .edit - возможность указывать оценку -->
+                <div class="rating edit">
+                  <div class="rating__line"></div>
+                  <div class="rating__activeline"></div>
+                  <!-- value="" оценка в звёздах -->
+                  <input value="3.5" type="hidden" name="rating" />
+                  <div class="stars">
+                    <span class="star"><i>Ужасно</i></span>
+                    <span class="star"><i>Плохо</i></span>
+                    <span class="star"><i>Нормально</i></span>
+                    <span class="star"><i>Хорошо</i></span>
+                    <span class="star"><i>Отлично</i></span>
+                  </div>
+                </div>
+                <!-- оценка в цифрах -->
+                <div class="rating__value">3.5</div>
+              </div>
+            </div>
+            <!-- кнопка -->
+            <div class="form-block__item">
+              <!-- .btn прописан в forms.scss.(btn+tab ~32-41) -->
+              <!-- для не возможности отправки формы без данных, через кнопку, в input, вводим доп класc - req. forms.js(~773-875)(VALIDATE FORMS)  -->
+              <!-- для выведения текста ошибки, добав и .input атрибут - data-error="Текст ошибки". forms.js((901)930-934) -->
+              <button type="submit" class="form-block__btn btn">
+                Задать вопрос
+              </button>
+            </div>
+          </form>
+          <br />
+          <br />
+          <!-- подсказки вспывающие -->
+          <div class="block__text">
+            <!-- ??? продолжение -->
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Doloremque, quam? <span>?</span>
+          </div>
+          <br />
+          <br />
+          <!-- галерея -->
+          <div class="block__gallery gallery-block gallery">
+            <!-- доп к родителю .gallery - зум при нажатии, перемотка. В a>href - картинку(можно другую, большую)-->
+            <!-- редак в baguetteBox.scss и baguetteBox.js -->
+            <a href="/img/cover.jpg" class="gallery-block__item">
+              <img src="/img/cover.jpg" alt=""
+            /></a>
+            <a href="/img/cover.jpg" class="gallery-block__item">
+              <img src="/img/cover.jpg" alt=""
+            /></a>
+            <a href="/img/cover.jpg" class="gallery-block__item">
+              <img src="/img/cover.jpg" alt=""
+            /></a>
+            <a href="/img/cover.jpg" class="gallery-block__item">
+              <img src="/img/cover.jpg" alt=""
+            /></a>
+          </div>
+        </div>
+      </div>
+      <!-- подкл доп файлов - подвал -->
+      <!-- @import "footer.html" -->
+    </div>
+    <!-- подкл доп файлов -  окна -->
+    <!-- @import "popup.html" -->
+    <!-- подкл файлов - script js -->
+    <!-- @import "js.html" -->
+  </body>
+</html>

@@ -1,0 +1,494 @@
+//<FORM (a.f+tab)>====================================================================================================
+.form {
+}
+.form-row {
+  @include flexbox();
+  margin: 0px -15px;
+}
+.form__column {
+  padding: 0px 15px;
+}
+.form-input {
+}
+.form-button {
+}
+
+// написаный блок формы
+.block__form {
+}
+// док класс блока формы
+.form-block {
+  // дочерние элементы
+  &__item {
+    margin: 0px 0px 20px 0px;
+    .check {
+      display: inline-block;
+      margin: 0px 10px;
+    }
+  }
+}
+//</FORM>====================================================================================================
+
+//<INPUT (inp+tab)>====================================================================================================
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  color: #330f0f;
+}
+.input {
+  border: 1px solid #000;
+  height: 50px;
+  border-radius: 0 !important;
+  margin: 0px 0px 20px 0px;
+  width: 100%;
+  display: block;
+  padding: 0px 20px;
+  &.focus {
+  }
+  &.err {
+    border: 3px solid red;
+  }
+}
+.phone {
+  // border-image: url(/img/icons/ui-icons.png);
+  // width: 200px;
+  // height: 200px;
+  background: #f5f240;
+  border: 5px solid #f0d900;
+  // border-radius: 10px 150px 30px 150px !important;
+  outline: 5px solid #e3e3e3;
+}
+.email {
+  border: 5px solid #aa6969;
+  outline: 5px solid #ffe353;
+}
+// в input, доп .l выносит data-value в отдельный лейбл
+.form__label {
+  background-color: #0f0;
+}
+.form__error {
+  color: #f00;
+  outline: 5px dashed #f00;
+}
+textarea.input {
+  resize: none;
+  padding: 0px 0px;
+}
+//</INPUT>====================================================================================================
+
+//<BUTTONS (btn+tab)>====================================================================================================
+.btn {
+  display: inline-block;
+  padding: 0px 0px;
+  &:hover {
+  }
+  &.fw {
+    width: 100%;
+  }
+}
+//</BUTTONS>====================================================================================================
+
+//<SELECT (sel+tab)>====================================================================================================
+.select-block {
+  position: relative;
+}
+.select__label {
+  z-index: 2;
+  position: absolute;
+  top: -8px;
+  background-color: #f7f7f7;
+  padding: 0 5px;
+  color: #979797;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+  left: 20px;
+}
+.select {
+  position: relative;
+  cursor: pointer;
+  .select-title {
+    z-index: 1;
+    width: 100%;
+    height: 55px;
+    border: 1px solid #dedede;
+    position: relative;
+    background-color: #fff;
+  }
+  .select-title__arrow {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 45px;
+    height: 100%;
+    background: url("../img/icons/select-arrow.svg") center no-repeat;
+    background: #7d7d81;
+  }
+  .select-title__value {
+    color: #000;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 53px;
+    display: block;
+    overflow: hidden;
+    padding: 0 55px 0 25px;
+    white-space: nowrap;
+    text-transform: none;
+    text-overflow: ellipsis;
+  }
+  .select-options {
+    position: absolute;
+    z-index: 10;
+    top: 54px;
+    display: none;
+    overflow: hidden;
+    min-width: 100%;
+    background-color: #ffff1a;
+    // border: 1px solid #11a0a0;
+    padding: 10px 20px 10px 25px;
+  }
+  .select-options-scroll {
+    max-height: 80px;
+    max-height: 100px;
+    overflow: auto;
+    // overflow: hidden;
+    background: #aa6969;
+  }
+  .select-options-list {
+    background: #c5ffc5;
+    padding: 0px 0px 0px 0px;
+  }
+  .select-options__value {
+    color: #4b4b57;
+    font-size: 20px;
+    margin: 0px 0px 15px 0px;
+    &:last-child {
+      margin: 0px 0px 0px 0px;
+    }
+    &:hover {
+      color: #000;
+      // outline: 1px solid #185888;
+      // box-shadow: 10px solid #00f !important;
+      // text-shadow: 10px solid #da0005 !important;
+    }
+  }
+  // написаный класс
+  // ??? не раб стрелка вниз изза фона по умолчанию, который не могу найти ???
+  &.form-block__select {
+    .select-title {
+      font-style: italic;
+      background-color: #ffb1b1;
+    }
+    .select-title__arrow {
+      // content: "";
+      // top: 100%;
+      // left: 50%;
+      // width: 0;
+      // width: 50px;
+      // height: 0;
+      // margin-left: -15px;
+      top: auto;
+      bottom: -50%;
+      height: 100%;
+      border: 25px solid #fff;
+      border-top-color: #8f8c8c;
+      // border-top: 25px solid #0f0;
+    }
+    .select-options {
+      background-color: #feffbc;
+    }
+    .select-options-scroll {
+      max-height: 80px;
+      max-height: 100px;
+      overflow: auto;
+      // overflow: hidden;
+      background: #7a7a7a !important;
+      background: #7a7a7a;
+    }
+    .select-options-list {
+      background: #b6adad !important;
+      background: #b6adad;
+      padding: 0px 0px 0px 0px;
+    }
+  }
+}
+
+//</SELECT>====================================================================================================
+
+//<CHECK (chk+tab)>====================================================================================================
+.check {
+  position: relative;
+  padding-left: 25px;
+  color: #5f5f5f;
+  line-height: 18px;
+  cursor: pointer;
+  input {
+    display: none;
+  }
+  &:before {
+    content: "";
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #a3a3a3;
+    position: absolute;
+  }
+  &.active {
+    &:before {
+      background: url("../img/icons/check.png") center no-repeat;
+      background: #00f;
+    }
+  }
+}
+//</CHECK>====================================================================================================
+
+//<OPTIONS (opt+tab)>====================================================================================================
+.option {
+  position: relative;
+  cursor: pointer;
+  padding-left: 25px;
+  line-height: 16px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 300;
+  &:last-child {
+    margin-bottom: 0px;
+  }
+  input {
+    display: none;
+  }
+  &:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    content: "";
+    border: 1px solid #7f7f7f;
+    border-radius: 50%;
+  }
+  &.active {
+    &:before {
+      background: url("../img/icons/option.png") center no-repeat;
+      background: #00f;
+    }
+  }
+}
+//</OPTIONS>====================================================================================================
+
+//<RATING>====================================================================================================
+.rating-block {
+  display: table;
+  font-size: 0;
+}
+.rating {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  &.edit .star {
+    cursor: pointer;
+  }
+  .star {
+    width: 17px;
+    height: 14px;
+    display: inline-block;
+    position: relative;
+    z-index: 3;
+  }
+}
+.rating__line {
+  position: absolute;
+  width: 85px;
+  height: 14px;
+  top: 0;
+  left: 0;
+  background: url("../img/icons/bg_rating.svg") 0 0 no-repeat;
+  z-index: 1;
+  background-size: 85px 100%;
+}
+.rating__activeline {
+  position: absolute;
+  width: 0px;
+  height: 14px;
+  top: 0;
+  left: 0;
+  background: url("../img/icons/bg_rating_active.svg") 0 0 no-repeat;
+  z-index: 2;
+  background-size: 85px 100%;
+}
+.rating__value {
+  display: inline-block;
+  color: #1b3139;
+  font-size: 14px;
+  line-height: 13px;
+  vertical-align: middle;
+}
+//</RATING>====================================================================================================
+
+//<QUANTITY>====================================================================================================
+.quantity {
+  position: relative;
+  width: 73px;
+  height: 47px;
+  border: 1px solid #cfcfcf;
+  background-color: #ffffff;
+}
+.quantity__input {
+  height: 45px;
+  width: 50px;
+  text-align: center;
+  color: #101010;
+  font-weight: 300;
+}
+.quantity__btn {
+  position: absolute;
+  top: 11px;
+  right: 15px;
+  cursor: pointer;
+  &:before {
+    font-size: 25px;
+    display: inline-block;
+    line-height: 10px;
+    color: #a9a9a9;
+  }
+  &:hover {
+    &:before {
+      color: #da0005;
+    }
+  }
+  &.up {
+  }
+  &.dwn {
+    top: 25px;
+  }
+}
+//</QUANTITY>====================================================================================================
+
+//<RANGE>====================================================================================================
+.category-params-item-price {
+}
+.category-params-item-price-table {
+  margin-bottom: 25px;
+  .cell {
+    &:first-child {
+      padding-right: 15px;
+      position: relative;
+      &:after {
+        content: "-";
+        position: absolute;
+        right: -4px;
+        top: 8px;
+        font-size: 20px;
+      }
+    }
+    &:last-child {
+      padding-left: 15px;
+    }
+    input {
+      height: 37px;
+      border: 2px solid #393939;
+      background-color: #ffffff;
+      text-align: center;
+      font-size: 12px;
+      color: #393939;
+      font-weight: 500;
+      width: 100%;
+    }
+  }
+}
+.category-params-item-price-range {
+  margin: 0 12px 40px 12px;
+  background-color: #c9cecf;
+  height: 2px;
+  position: relative;
+  .ui-slider-range {
+    background-color: #000;
+    height: 2px;
+    position: relative;
+  }
+  .ui-slider-handle {
+    width: 23px;
+    height: 28px;
+    border: 3px solid #fbfbfb;
+    background-color: #ea5922;
+    display: block;
+    position: absolute;
+    top: -14px;
+    margin-left: -12px;
+    cursor: pointer;
+    span {
+      position: absolute;
+      bottom: -18px;
+      left: 50%;
+      width: 50px;
+      text-align: center;
+      font-size: 10px;
+      margin-left: -25px;
+      font-weight: 500;
+      color: #94a6aa;
+    }
+  }
+}
+
+.form-range {
+}
+.form__info {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  right: 0;
+  top: 0;
+  line-height: 60px;
+  text-align: center;
+  color: #888;
+  z-index: 2;
+  font-size: 14px;
+  @media (max-width: $md3+px) {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+  }
+}
+.form-range-line {
+  position: relative;
+  height: 5px;
+  border-radius: 0 0 4px 4px;
+  background-color: #e0e0e0;
+  margin: -2px 0px 0px 0px;
+  .ui-slider-range {
+    background-color: #093454;
+    height: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0 0 4px 4px;
+  }
+  .ui-slider-handle {
+    background: url("../img/icons/range.svg") 0 0 no-repeat;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    margin: -9px 0px 0px -14px;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+  }
+  .ui-state-hover {
+    background: url("../img/icons/range_a.svg") 0 0 no-repeat;
+  }
+}
+.form-range-values {
+  @include flexbox();
+  justify-content: space-between;
+  padding: 14px 0px 0px 0px;
+}
+.form-range-values__item {
+  font-size: 12px;
+  color: #888;
+}
+//</RANGE>====================================================================================================

@@ -1,0 +1,552 @@
+// <МИКСИНЫ>===============================================================================================
+// миксин - комплект свойств, для быстрого вызова(подробнее mixins.scss)
+@import "mixins.scss";
+// </МИКСИНЫ>===============================================================================================
+
+// <ШРИФТЫ>===============================================================================================
+// <Подключаем шрифты>=======================================================================================
+@font-face {
+	font-family: "Roboto";
+	src: url("fonts/Roboto-Bold.eot");
+	src: local("☺"), url("fonts/Roboto-Bold.woff") format("woff"), url("fonts/Roboto-Bold.ttf") format("truetype"),
+		url("fonts/Roboto-Bold.svg") format("svg");
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Roboto";
+	src: url("../fonts/Roboto-Regular.eot");
+	src: local("☺"), url("../fonts/Roboto-Regular.woff") format("woff"),
+		url("fonts/Roboto-Regular.ttf") format("truetype"), url("fonts/Roboto-Regular.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+// &display=swap; // * порядок загрузки шрифтов - улучшает скорость загрузки. Добавить в конец пути загрузки шрифта
+// &subset=curillic-ext // * для кириллицы. Так же в путь загрки, в плотную со swap.
+// @import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
+
+// подкл шрифты гугл, гуглфондс, напрямую
+// </Подключаем шрифты>=======================================================================================
+
+//<Иконочные шрифты>==========================================================================================
+
+//</Иконочные шрифты>==========================================================================================
+
+// <ШРИФТ ПО УМОЛЧАНИЮ>==========================================================================================
+// переменая шрифта по умолчанию (можно несколько сразу завести)
+$fontfamily: "Roboto";
+// </ШРИФТ ПО УМОЛЧАНИЮ>==========================================================================================
+
+// </ШРИФТЫ>=======================================================================================================
+
+// <ПЕРЕМЕННЫЕ>===========================================================================================================
+// сетка адаптива
+// минимальная ширина. статична
+$minwidth: 320px;
+// начальное значение контейниера из PSD. чаще всего использ дизайнерами
+$mw: 1170;
+// 1-ый брейкпоинт + 12px (по 6 с каждой стороны). измен по усмотрению
+$md1: $mw + 12;
+// планшетное расширение
+$md2: 991.98;
+// телефоны
+$md3: 767.98;
+// маленькие телефоны
+$md4: 479.98;
+// </ПЕРЕМЕННЫЕ>===========================================================================================================
+
+// <ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+// обнуляющий стиль для стандартизации по всем свойствам, брайзерам и пр.
+@import "null.scss";
+// </ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+// основная сетка. подстройка под расширение экрана с учётом переменных из сетки адаптива
+// mw - изначальная ширина контейниера
+.container {
+	margin: 0 auto;
+	max-width: 1280px;
+	min-height: 100%;
+	display: flex;
+	flex-direction: row;
+}
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЛЕМЕНТОВ>====================================================================================================
+//@import "../../js/fancybox/jquery.fancybox.scss";
+// @import "datepicker.scss";
+// @import "fontawesome.scss";
+// @import "popover.min.scss";
+// галерея
+@import "baguetteBox.scss";
+// @import "pagging.scss";
+// @import "icons.scss";
+// всплыв окна
+@import "popup.scss";
+// шапка
+@import "header.scss";
+// подвал
+@import "footer.scss";
+@import "home.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+
+.window {
+	flex: 1 1 100%;
+	overflow-y: auto;
+	display: flex;
+
+	&__sidebar {
+		flex: 1 1 30%;
+		@include flexbox();
+		flex-direction: column;
+		align-items: flex-start;
+		background: #ffffff;
+		border-right: 1px solid #d9dce0;
+		gap: 8px;
+	}
+
+	&__chat {
+		flex: 1 1 70%;
+		@include flexbox();
+		flex-direction: column;
+		align-items: stretch;
+	}
+}
+.sidebar {
+	&__search {
+		@include flexbox();
+		align-items: center;
+		padding: 8px 16px;
+		gap: 16px;
+		height: 56px;
+		align-self: stretch;
+	}
+
+	&__users {
+		@include flexbox();
+		flex-direction: column;
+		align-items: flex-start;
+		align-self: stretch;
+	}
+}
+
+.search {
+	&__burger {
+		flex: 0 0 auto;
+		width: 40px;
+		height: 40px;
+		flex: 0 0 auto;
+		background: url("/img/burger.png") center no-repeat;
+	}
+	&__field {
+		flex: 1 1 280px;
+		min-width: 120px;
+		display: flex;
+		align-items: center;
+		padding: 8px 16px;
+		height: 40px;
+		background: #f5f5f5;
+		border-radius: 22px;
+	}
+
+	&__icon {
+		flex: 0 0 auto;
+		width: 24px;
+		height: 24px;
+		flex: 0 0 auto;
+	}
+
+	&__content {
+		flex: 1 1 auto;
+		margin-left: 5px;
+
+		@media (max-width: 768px) {
+			width: 120px;
+		}
+
+		input {
+			width: 100%;
+		}
+
+		.search-chats {
+			height: 20px;
+			font-size: 16px;
+			line-height: 20px;
+			color: #707991;
+			background-color: inherit;
+			max-width: 100%;
+		}
+	}
+}
+
+.users {
+	&__one {
+		@include flexbox();
+		align-items: center;
+		padding: 12px 16px;
+		width: 364px;
+		width: 100%;
+	}
+
+	&__logo {
+		@include flexbox();
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		width: 48px;
+		height: 48px;
+		background: #8babd8;
+		border-radius: 50%;
+	}
+
+	&__logo-name {
+		font-weight: 700;
+		font-size: 20px;
+		line-height: 20px;
+		color: #ffffff;
+	}
+
+	&__row {
+		flex: 1 1 auto;
+		@include flexbox();
+		flex-direction: column;
+		align-items: flex-start;
+		height: 46px;
+		margin-left: 16px;
+	}
+}
+.row {
+	&__top {
+		@include flexbox();
+		align-items: center;
+		width: 100%;
+		margin-bottom: 5px;
+	}
+
+	&__name {
+		flex: 1 1 230px;
+		@include flexbox();
+		align-items: center;
+
+
+		p {
+			height: 24px;
+			font-weight: 700;
+			font-size: 18px;
+			line-height: 22px;
+			padding-right: 5px;
+			overflow: hidden;
+		}
+	}
+
+	&__time {
+		flex: 0 0 auto;
+		font-size: 12px;
+		line-height: 16px;
+		color: #707991;
+	}
+
+	&__bottom {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		width: 268px;
+		align-self: stretch;
+		width: 100%;
+	}
+
+	&__last-message {
+		padding-right: 5px;
+	}
+
+	&__last-message-count {
+		flex: 0 0 auto;
+		width: 18px;
+		height: 18px;
+		background: #78e378;
+		border-radius: 50%;
+		font-size: 12px;
+		line-height: 16px;
+		text-align: center;
+		color: #ffffff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__last-message-text {
+		height: 18px;
+		font-size: 14px;
+		line-height: 18px;
+		color: #707991;
+		overflow: hidden;
+	}
+}
+.chat {
+	&__topbar {
+		@include flexbox;
+		padding: 8px 16px;
+		gap: 8px;
+		height: 56px;
+		border-bottom: 1px solid #d9dce0;
+	}
+
+	&__user {
+		@include flexbox;
+		flex: 1 1 740px;
+		align-items: center;
+		gap: 16px;
+	}
+
+	&__action {
+		@include flexbox;
+		flex: 0 0 160px;
+	}
+
+	&__block {
+		flex: 1 1 auto;
+		background: url("/img/background.png"), #8babd8;
+		background-blend-mode: overlay;
+		background-size: cover;
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Tempalate topbar
+
+.user {
+	&__logo {
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+		}
+	}
+
+	&__info {
+		@include flexbox();
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	&__name {
+		flex: 0 0 50%;
+		font-weight: 700;
+		font-size: 18px;
+		line-height: 20px;
+	}
+
+	&__last-seen {
+		flex: 0 0 50%;
+		font-size: 12px;
+		line-height: 18px;
+		color: #707991;
+	}
+}
+
+.chat {
+	&__search {
+		@include flexbox();
+		justify-content: center;
+		align-items: center;
+		flex: 1 1 33.333%;
+		margin: 0 4px;
+
+		img {
+			display: inline-block;
+		}
+	}
+
+	&__phone {
+		@include flexbox();
+		justify-content: center;
+		align-items: center;
+		flex: 1 1 33.333%;
+		margin: 0 4px;
+
+		img {
+			display: inline-block;
+		}
+	}
+
+	&__dots {
+		@include flexbox();
+		justify-content: center;
+		align-items: center;
+		flex: 1 1 33.333%;
+		margin: 0 4px;
+
+		img {
+			display: inline-block;
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Temaplate chat messages
+
+.chat {
+	&__container {
+		margin: 0 auto;
+		width: 75%;
+		min-height: 100%;
+		@include flexbox();
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: center;
+		padding: 24px 0px;
+	}
+
+	&__writer {
+		@include flexbox();
+		align-items: center;
+		padding: 8px 16px;
+		width: 100%;
+		background: #ffffff;
+		border-radius: 12px;
+		margin-top: 8px;
+	}
+
+	&__content {
+		@include flexbox();
+		justify-content: flex-end;
+		align-items: center;
+		align-self: stretch;
+		margin: 8px 0;
+	}
+
+	&__date {
+	}
+}
+.writer {
+	&__form {
+		height: 100%;
+		width: 100%;
+
+		button {
+			background-color: inherit;
+		}
+	}
+
+	&__clear {
+		flex: 1 1 auto;
+		margin-right: 15px;
+		cursor: pointer;
+		visibility: hidden;
+		@include anim(0.1s, 0.1s);
+	}
+
+	&__textarea {
+		resize: none;
+		width: 100%;
+		max-height: 100%;
+		height: auto;
+		font-size: 18px;
+		line-height: 22px;
+		align-self: center;
+		overflow: hidden;
+	}
+
+	&__text {
+		flex: 1 1 100%;
+		margin: 0 16px 0 0;
+		min-height: 22px;
+	}
+
+	&__send {
+		flex: 1 1 auto;
+	}
+}
+.message {
+	&__block {
+		@include flexbox();
+		max-width: 90%;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-end;
+		padding: 4px 12px;
+		border-radius: 12px;
+		position: relative;
+	}
+
+	.my {
+		background: #78e378;
+	}
+
+	.his {
+		background: #ffffff;
+		margin-right: auto;
+	}
+
+	&__delete {
+		position: absolute;
+		display: block;
+		width: 32px;
+		height: 32px;
+		top: 0;
+		left: 100%;
+		margin: -15px 0 0 -20px;
+		background: url("/img/close.png");
+	}
+
+	&__text {
+		font-size: 18px;
+		line-height: 22px;
+	}
+
+	&__info {
+		@include flexbox();
+		align-items: center;
+		padding: 0px 4px;
+		height: 16px;
+	}
+
+	&__time-my {
+		font-size: 12px;
+		line-height: 16px;
+		color: #ffffff;
+	}
+
+	&__time-his {
+		font-size: 12px;
+		line-height: 16px;
+	}
+
+	&__status {
+		margin-left: 4px;
+
+		img {
+			height: 14px;
+			width: auto;
+			object-fit: cover;
+			object-position: center;
+		}
+	}
+}
+.date {
+	&__text {
+	}
+}
+
+//====================================================================================================
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+// элем форм, checkbox, select, кнопки
+@import "forms.scss";
+// сбор готовых и вспомогательных классов (ibg, video, заголовки, зеркало, серый стиль)
+@import "ui.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================

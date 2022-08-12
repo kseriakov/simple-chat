@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Главная</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- <meta name="format-detection" content="telephone=no" /> -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- для раб прогеров отдельно от нас. редко нужен. устаревший  -->
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- <meta name="robots" content="noindex, nofollow" /> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+    <!-- для адапт вёрстки -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="window">
+            <div class="window__sidebar sidebar">
+                <div class="sidebar__search search">
+                    <div class="search__burger">
+                    </div>
+                    <div class="search__field">
+                        <div class="search__icon">
+                            <img src="./img/search.png" alt="">
+                        </div>
+                        <div class="search__content">
+                            <input type="text" name="search-chats" id="" placeholder="Search" class="search-chats">
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar__users users">
+                    <div class="users__one">
+                        <div class="users__logo">
+                            <p class="users__logo-name">И</p>
+                        </div>
+                        <div class="users__row row">
+                            <div class="row__top">
+                                <div class="row__name"><p>Иван Иванов</p></div>
+                                <div class="row__time">22:10</div>
+                            </div>
+                            <div class="row__bottom">
+                                <div class="row__last-message">
+                                    <p class="row__last-message-text">Lorem ipsum dolor Lorem ipsum dolor sit amet
+                                        consectetur
+                                        adipisicing elit. Quisquam, harum!</p>
+                                </div>
+                                <div class="row__last-message-count">
+                                    <p>2</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="users__one">
+                        <div class="users__logo">
+                            <p class="users__logo-name">И</p>
+                        </div>
+                        <div class="users__row row">
+                            <div class="row__top">
+                                <div class="row__name"><p>Иван Петров</p></div>
+                                <div class="row__time">20:50</div>
+                            </div>
+                            <div class="row__bottom">
+                                <div class="row__last-message">
+                                    <p class="row__last-message-text">Lorem ipsum dolor Lorem ipsum dolor sit amet</p>
+                                </div>
+                                <div class="row__last-message-count">
+                                    <p>1</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="window__chat chat">
+                <div class="chat__topbar">
+                    <div class="chat__user user">
+                        <div class="user__logo">
+                            <img src="/img/user.jpg" alt="">
+                        </div>
+                        <div class="user__info">
+                            <div class="user__name">Петр Петров</div>
+                            <div class="user__last-seen">на прошлой неделе</div>
+                        </div>
+                    </div>
+                    <div class="chat__action">
+                        <div class="chat__search"><img src="/img/search.png" alt=""></div>
+                        <div class="chat__phone"><img src="/img/phone.png" alt=""></div>
+                        <div class="chat__dots"><img src="/img/dots.png" alt=""></div>
+                    </div>
+                </div>
+                <div class="chat__block">
+                    <div class="chat__container">
+                        <div class="chat__content message">
+                            <div class="message__block his">
+                                <div class="message__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Beatae facere earum quasi, totam nulla aliquam corrupti assumenda id quidem ipsa
+                                    iste aperiam iusto repellendus natus? Harum vero laborum aut! Nostrum.</div>
+                                <div class="message__info">
+                                    <div class="message__time-his">15:15</div>
+                                    <div class="message__status"><img src="/img/check-blue.png" alt=""></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Получаем сообщения из template по js -->
+                        <div class="chat__content message">
+                            <div class="message__block my">
+                                <div class="message__text"> Lorem ipsum dolor sit amet lore</div>
+                                <div class="message__info">
+                                    <div class="message__time-my">16:10</div>
+                                    <div class="message__status"><img src="/img/check-white.png" alt=""></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat__date date">
+                            <div class="date__text"></div>
+                        </div>
+                        <!-- потом поменять на post -->
+                        <form action="" method="get" class="writer__form" name="writer__form">
+                            <div class="chat__writer writer">
+                                <div class="writer__text">
+                                    <textarea name="my-message" id="" rows="1" class="writer__textarea"
+                                        placeholder="Message..." required></textarea>
+                                </div>
+                                <div class="writer__clear">
+                                    <img src="/img/clear.png" alt="">
+                                </div>
+                                <div class="writer__send">
+                                    <button type="submit"><img src="/img/send.png" alt=""
+                                            class="writer__send-button"></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <template id="chat-message">
+        <div class="chat__content message">
+            <div class="message__block my">
+                <div class="message__text"></div>
+                <div class="message__info">
+                    <div class="message__time-my">10:10</div>
+                    <div class="message__status"><img src="/img/check-white.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="chat-topbar">
+        <div class="chat__topbar">
+            <div class="chat__user user">
+                <div class="user__logo">
+                    <img src="/img/user.jpg" alt="">
+                </div>
+                <div class="user__info">
+                    <div class="user__name">Петр Петров</div>
+                    <div class="user__last-seen">на прошлой неделе</div>
+                </div>
+            </div>
+            <div class="chat__action">
+                <div class="chat__search"><img src="/img/search.png" alt=""></div>
+                <div class="chat__phone"><img src="/img/phone.png" alt=""></div>
+                <div class="chat__dots"><img src="/img/dots.png" alt=""></div>
+            </div>
+        </div>
+    </template>
+
+    <template id="delete-message">
+        <form action="" method="get" name="delete-message">
+            <!-- В дальнейшем поменять на Post, ниже поле для данных -->
+            <!-- <input type="hidden" value="123123" name="inpt"> -->
+            <button type="submit" class="submit">
+                <div class="message__delete"></div>
+            </button>
+        </form>
+    </template>
+
+
+    <script src="js/custom.js"></script>
+
+</body>
+
+</html>

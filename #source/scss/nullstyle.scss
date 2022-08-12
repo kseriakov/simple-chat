@@ -1,0 +1,231 @@
+// <МИКСИНЫ>===============================================================================================
+@mixin anim($time, $delay) {
+  -webkit-transition: all $time ease $delay;
+  -moz-transition: all $time ease $delay;
+  -ms-transition: all $time ease $delay;
+  -o-transform: all $time ease $delay;
+  transform: all $time ease $delay;
+}
+@mixin anim_cubic($time, $delay) {
+  -webkit-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+  -moz-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+  -ms-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+  -o-transform: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+  transform: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+}
+@mixin rotate($deg) {
+  -webkit-transition: rotate($deg);
+  -moz-transition: rotate($deg);
+  -ms-transition: rotate($deg);
+  -o-transform: rotate($deg);
+  transform: rotate($deg);
+}
+@mixin scale($num) {
+  -webkit-transition: scale($num);
+  -moz-transition: scale($num);
+  -ms-transition: scale($num);
+  -o-transform: scale($num);
+  transform: scale($num);
+}
+@mixin skew($num) {
+  -webkit-transition: skewX($num);
+  -moz-transition: skewX($num);
+  -ms-transition: skewX($num);
+  -o-transform: skewX($num);
+  transform: skewX($num);
+}
+@mixin cnt($h) {
+  display: flex;
+  flex-direction: column;
+  height: $h;
+  text-align: center;
+  align-items: stretch;
+  justify-content: center;
+}
+@mixin tr($x, $y, $z) {
+  transform: translate3d($x, $y, $z);
+}
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  font-size: 0;
+}
+@mixin flexorder($val) {
+  -webkit-box-ordinal-group: $val;
+  -moz-box-ordinal-group: $val;
+  -ms-flex-order: $val;
+  -webkit-order: $val;
+  order: $val;
+}
+// </МИКСИНЫ>===============================================================================================
+
+// <ШРИФТЫ>===============================================================================================
+// <Подключаем шрифты>=======================================================================================
+// font-display: swap;
+// </Подключаем шрифты>=======================================================================================
+// <ШРИФТ ПО УМОЛЧАНИЮ>==========================================================================================
+$fontfamily: "AkzidenzGroteskBQ-BdCnd";
+// </ШРИФТ ПО УМОЛЧАНИЮ>==========================================================================================
+// </ШРИФТЫ>=======================================================================================================
+
+// <ПЕРЕМЕННЫЕ>===========================================================================================================
+$minwidth: 320px;
+$mw: 1170;
+$md1: $mw + 12;
+$md2: 992.98;
+$md3: 767.98;
+$md4: 479.98;
+// </ПЕРЕМЕННЫЕ>===========================================================================================================
+
+// <ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+aside,
+nav,
+footer,
+header,
+section {
+  display: block;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  font-family: $fontfamily;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  &.lock {
+    overflow: hidden;
+    @media (max-width: $md3+px) {
+      width: 100%;
+      position: fixed;
+      overflow: hidden;
+    }
+  }
+}
+input,
+button,
+textarea {
+  font-family: $fontfamily;
+}
+input::-ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
+// a:hover {
+// 	text-decoration: none;
+// }
+ul li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+// -webkit-overflow-scrolling: touch;
+// animation-play-state: paused !importal;
+// </ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  // &.loader{}
+}
+//</ОБОЛОЧКА>===========================================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+.container {
+  max-width: $mw + px;
+  margin: 0 auto;
+  width: 100%;
+  @media (max-width: $md1+px) {
+    max-width: 970px;
+  }
+  @media (max-width: $md2+px) {
+    max-width: 750px;
+  }
+  @media (max-width: $md3+px) {
+    max-width: none;
+    padding: 0 10px;
+  }
+}
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЛЕМЕНТОВ>====================================================================================================
+//@import "../../js/fancybox/jquery.fancybox.scss";
+// @import "datepicker.scss";
+// @import "fontawesome.scss";
+// @import "popover.scss";
+// @import "baguetteBox.scss";
+// @import "pagging.scss";
+// @import "icons.scss";
+// @import "popup.scss";
+@import "header.scss";
+@import "footer.scss";
+// @import "home.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>
+//=========================================
+//</ОСНОВНОЙ БЛОК>
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+@import "forms.scss";
+@import "ui.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+
+/*------------------------------------------------------------------------------*/
